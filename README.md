@@ -1,7 +1,7 @@
 # 🌨️ Alaska Arctic Weather Tracker  
 *A Flask app analyzing extreme weather patterns in Alaska, relevant to climate research at UAF.*  
 
-## 🎯 UAF Admissions Portfolio  
+## 🎯 UAF Portfolio  
 **Tech Stack:** Python, Flask, OpenWeatherMap API  
 **Key Relevance:**  
 - Tracks temperature anomalies in **Fairbanks** (permafrost region).  
