@@ -5,9 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>What's the weather like?</title>
+    <title>Alaska Arctic Weather Tracker</title>  <!-- Changed title -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+        .research-alert {
+            margin: 1rem auto;
+            max-width: 600px;
+        }
+        .hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* UAF blue gradient */
+        }
+    </style>
 </head>
 
 <body>
@@ -15,11 +24,22 @@
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
-                    What's the weather like?
+                    Alaska Arctic Weather Tracker  <!-- Changed heading -->
                 </h1>
+                <h2 class="subtitle">
+                    Monitoring climate patterns for UAF research  <!-- Added subtitle -->
+                </h2>
             </div>
         </div>
     </section>
+
+    <!-- UAF Research Alert Box -->
+    <div class="notification is-info research-alert">
+        <button class="delete"></button>
+        <strong>UAF Research Link:</strong> Tracking extreme temperature shifts in the Arctic. 
+        <br>Try cities: <strong>Fairbanks, Anchorage, Barrow</strong>
+    </div>
+
     <section class="section">
         <div class="container">
             <div class="columns">
@@ -27,11 +47,11 @@
                     <form method="POST">
                         <div class="field has-addons">
                             <div class="control is-expanded">
-                                <input class="input" name="city" type="text" placeholder="City Name" style="text-transform: capitalize;">
+                                <input class="input" name="city" type="text" placeholder="Alaskan City Name" style="text-transform: capitalize;">
                             </div>
                             <div class="control">
                                 <button class="button is-info">
-                                    Add City
+                                    <i class="fa fa-search"></i> Track
                                 </button>
                             </div>
                         </div>
@@ -39,7 +59,6 @@
                         {% if messages %}
                             {% for category, message in messages %}
                                 {% set message_class = 'is-success' %}
-
                                 {% if category == 'error' %}
                                     {% set message_class = 'is-danger' %}
                                 {% endif %}
@@ -57,12 +76,11 @@
             <div class="columns is-multiline">
                 {% for weather in weather_data %}
                 <div class="column is-one-third">
-                    
                     <div class="box">
                         <article class="media">
                             <div class="media-left">
                                 <figure class="image is-50x50">
-                                    <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Image">
+                                    <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Weather Icon">
                                 </figure>
                             </div>
                             <div class="media-content">
@@ -72,17 +90,19 @@
                                         <br>
                                         <span class="subtitle">{{ weather.temperature }}° C</span>
                                         <br> {{ weather.description }}
+                                        {% if weather.city in ["Fairbanks", "Anchorage", "Barrow"] %}
+                                        <br><span class="tag is-primary">UAF Priority</span>
+                                        {% endif %}
                                     </p>
                                 </div>
                             </div>
                             <div class="media-right">
-                               <a href=" {{ url_for('delete_city', name=(weather.city)) }}"> 
+                               <a href="{{ url_for('delete_city', name=weather.city) }}"> 
                                    <button class="delete"></button>
                                </a>
                             </div>
                         </article>
                     </div>
-                    
                 </div>
                 {% endfor %}
             </div>
@@ -91,11 +111,14 @@
     <footer class="footer">
         <div class="container">
             <div class="content has-text-centered">
-                
-                <a href="https://github.com/jkaethee"><i class="fa fa-github" style="font-size:36px"></i></a>.
-              </p>
+                <p>
+                    <strong>Arctic Climate Tracker</strong> for University of Alaska Fairbanks
+                </p>
+                <a href="https://github.com/yourusername" class="button is-text">
+                    <i class="fa fa-github"></i> View on GitHub
+                </a>
             </div>
-          </div>
+        </div>
     </footer>
 </body>
 
