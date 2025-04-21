@@ -114,6 +114,8 @@ def delete_city(name):
     else:
         flash('Cannot delete core Alaskan cities!', 'error')
     return redirect(url_for('index_get'))
+    
+   
 
 
 if __name__ == '__main__':
