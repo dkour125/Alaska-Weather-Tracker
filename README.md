@@ -1,6 +1,17 @@
-## Flask Weather App
+# 🌨️ Alaska Arctic Weather Tracker  
+*A Flask app analyzing extreme weather patterns in Alaska, relevant to climate research at UAF.*  
 
-A simple web application to display the current weather in various cities, built with Python, Flask, SQLAlchemy, SQLite, HTML, and Bulma.
+## 🎯 UAF Admissions Portfolio  
+**Tech Stack:** Python, Flask, OpenWeatherMap API  
+**Key Relevance:**  
+- Tracks temperature anomalies in **Fairbanks** (permafrost region).  
+- Demonstrates API integration + data visualization for climate studies.  
+
+## Features  
+✅ Real-time weather data for Alaskan cities  
+✅ Historical temperature trend analysis *(expandable with NOAA data)*  
+✅ Mobile-responsive dashboard  
+
 
 This project is intended to help familiarize myself with web development with Python and Flask, and is based on this [tutorial](https://www.youtube.com/watch?v=lWA0GgUN8kg).
 
